@@ -113,17 +113,29 @@ export default {
 						opacity: '1',
 						transform: 'translateX(0)'
 					}
+				},
+				'spin-slow': {
+					'0%': {
+						transform: 'rotate(0deg)'
+					},
+					'100%': {
+						transform: 'rotate(360deg)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.6s ease-out',
-				'slide-in-right': 'slide-in-right 0.6s ease-out'
+				'slide-in-right': 'slide-in-right 0.6s ease-out',
+				'spin-slow': 'spin-slow 20s linear infinite'
 			},
 			fontFamily: {
 				'devanagari': ['Noto Sans Devanagari', 'system-ui', 'sans-serif'],
 				'japanese': ['Noto Sans JP', 'system-ui', 'sans-serif']
+			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(circle, var(--tw-gradient-stops))'
 			}
 		}
 	},

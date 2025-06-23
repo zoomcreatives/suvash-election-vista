@@ -118,4 +118,12 @@
   .section-fade-in.visible {
     @apply opacity-100 translate-y-0;
   }
+
+  .animate-spin-slow {
+    animation: spin 20s linear infinite;
+  }
+
+  .bg-gradient-radial {
+    background: radial-gradient(circle, var(--tw-gradient-stops));
+  }
 }
