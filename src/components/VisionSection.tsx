@@ -32,6 +32,12 @@ const VisionSection = () => {
       title: 'Transparent Leadership',
       titleNepali: 'पारदर्शी नेतृत्व',
       description: 'Ensuring open communication, accountability, and democratic participation in all NRNA Japan decisions and community initiatives.'
+    },
+    {
+      icon: '🌐',
+      title: 'Global Connections',
+      titleNepali: 'विश्वव्यापी सम्पर्क',
+      description: 'Strengthening ties with NRNA chapters worldwide and creating opportunities for international collaboration and knowledge exchange within the global Nepali diaspora.'
     }
   ];
 
