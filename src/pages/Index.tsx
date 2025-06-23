@@ -7,9 +7,11 @@ import VisionSection from '@/components/VisionSection';
 import TimelineSection from '@/components/TimelineSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import PhotoFrames from '@/components/PhotoFrames';
 
 const Index = () => {
   const [darkMode, setDarkMode] = useState(false);
+  const [showPhotoFrames, setShowPhotoFrames] = useState(false);
 
   useEffect(() => {
     // Default to light mode
@@ -37,6 +39,10 @@ const Index = () => {
     }
   };
 
+  const togglePhotoFrames = () => {
+    setShowPhotoFrames(!showPhotoFrames);
+  };
+
   // Intersection Observer for fade-in animations
   useEffect(() => {
     const observerOptions = {
@@ -61,9 +67,28 @@ const Index = () => {
     };
   }, []);
 
+  if (showPhotoFrames) {
+    return (
+      <div className="min-h-screen">
+        <Header 
+          darkMode={darkMode} 
+          toggleDarkMode={toggleDarkMode}
+          showPhotoFrames={showPhotoFrames}
+          onPhotoFramesToggle={togglePhotoFrames}
+        />
+        <PhotoFrames />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen">
-      <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <Header 
+        darkMode={darkMode} 
+        toggleDarkMode={toggleDarkMode}
+        showPhotoFrames={showPhotoFrames}
+        onPhotoFramesToggle={togglePhotoFrames}
+      />
       
       <main>
         <HeroSection />

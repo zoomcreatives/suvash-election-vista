@@ -1,14 +1,16 @@
 
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Moon, Sun, Menu, X } from 'lucide-react';
+import { Moon, Sun, Menu, X, Frame } from 'lucide-react';
 
 interface HeaderProps {
   darkMode: boolean;
   toggleDarkMode: () => void;
+  showPhotoFrames?: boolean;
+  onPhotoFramesToggle?: () => void;
 }
 
-const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
+const Header = ({ darkMode, toggleDarkMode, showPhotoFrames = false, onPhotoFramesToggle }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -74,8 +76,15 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
             <Button
               variant="ghost"
               size="sm"
+              onClick={onPhotoFramesToggle}
+              className={`ml-4 ${showPhotoFrames ? 'bg-campaign-red/10 text-campaign-red' : ''}`}
+            >
+              <Frame className="h-4 w-4" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
               onClick={toggleDarkMode}
-              className="ml-4"
             >
               {darkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </Button>
@@ -83,6 +92,14 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-2">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={onPhotoFramesToggle}
+              className={showPhotoFrames ? 'bg-campaign-red/10 text-campaign-red' : ''}
+            >
+              <Frame className="h-4 w-4" />
+            </Button>
             <Button
               variant="ghost"
               size="sm"
